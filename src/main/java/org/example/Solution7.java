@@ -10,17 +10,16 @@ public class Solution7 {
         }
         boolean minus = x < 0;
         String s = Integer.toString(minus ? -x : x);
-        int i;
         int first = s.length() == 10 ? 1 : 0;
         x = 0;
-        for(i = s.length() - 1; i >= first; i--) {
+        for(int i = s.length() - 1; i >= first; i--) {
             x = x * 10 + (s.charAt(i) - '0');
         }
         if (s.length() == 10) {
-            if (x > 214748364 || (x == 214748364 && s.charAt(i) - '0' > 7)) {
+            if (x > 214748364 || (x == 214748364 && s.charAt(0) - '0' > 7)) {
                 return 0;
             }
-            x = x * 10 + s.charAt(i) - '0';
+            x = x * 10 + s.charAt(0) - '0';
         }
         return minus ? - x : x;
     }
