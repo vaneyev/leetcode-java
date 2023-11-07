@@ -9,26 +9,22 @@ public class Solution125 {
         int j = s.length() - 1;
         char ci, cj;
         while (i < j) {
-            ci = Character.toLowerCase(s.charAt(i));
-            if (!isAlphaNumeric(ci)) {
+            ci = s.charAt(i);
+            if (!Character.isLetterOrDigit(ci)) {
                 i++;
                 continue;
             }
-            cj = Character.toLowerCase(s.charAt(j));
-            if (!isAlphaNumeric(cj)) {
+            cj = s.charAt(j);
+            if (!Character.isLetterOrDigit(cj)) {
                 j--;
                 continue;
             }
-            if (ci != cj) {
+            if (Character.toLowerCase(ci) != Character.toLowerCase(cj)) {
                 return false;
             }
             i++;
             j--;
         }
         return true;
-    }
-
-    private boolean isAlphaNumeric(char c) {
-        return c >= 'a' && c <= 'z' || c >= '0' && c <= '9';
     }
 }
