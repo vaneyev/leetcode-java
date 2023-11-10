@@ -5,25 +5,19 @@ package org.example;
  */
 public class Solution19 {
     public ListNode removeNthFromEnd(ListNode head, int n) {
-        if (head.next == null) {
-            return null;
+        ListNode slow = head;
+        ListNode fast = head;
+        for (int i = 0; i < n; i++) {
+            fast = fast.next;
         }
-        int i = 0;
-        ListNode cur = head;
-        ListNode prev = head;
-        while(cur != null) {
-            if (i <= n) {
-                i++;
-            } else {
-                prev = prev.next;
-            }
-            cur = cur.next;
+        if (fast == null) {
+            return head.next;
         }
-        if (i == n) {
-            head = head.next;
-        } else {
-            prev.next = prev.next.next;
+        while (fast.next != null) {
+            fast = fast.next;
+            slow = slow.next;
         }
+        slow.next = slow.next.next;
         return head;
     }
 
