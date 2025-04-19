@@ -20,7 +20,7 @@ public class Solution704 {
             if (nums[mid] > target) {
                 right = mid - 1;
             }
-            mid = (left + right) / 2;
+            mid = left + (right - left) / 2;
         }
         return -1;
     }

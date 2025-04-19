@@ -39,6 +39,7 @@ class Solution704Test {
         int result = solution704.search(new int[] {1, 2, 3, 4}, 4);
         assertEquals(3, result);
     }
+
     @Test
     void searchTest5() {
         Solution704 solution704 = new Solution704();
