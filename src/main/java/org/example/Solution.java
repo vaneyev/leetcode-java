@@ -2,20 +2,20 @@ package org.example;
 
 public class Solution {
 
-    public boolean hasCycle(ListNode head) {
-        if (head == null || head.next == null) {
-            return false;
+    public ListNode reverseList(ListNode head) {
+        if (head == null) {
+            return null;
         }
-        ListNode slow = head;
-        ListNode fast = head.next.next;
-        while (slow != null && fast != null && fast.next != null) {
-            if (fast == slow) {
-                return true;
-            }
-            slow = slow.next;
-            fast = fast.next.next;
+        ListNode prev = head;
+        head = head.next;
+        prev.next = null;
+        while (head != null) {
+            ListNode temp = head.next;
+            head.next = prev;
+            prev = head;
+            head = temp;
         }
-        return false;
+        return prev;
     }
 
     public static class ListNode {
