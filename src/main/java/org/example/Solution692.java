@@ -19,16 +19,20 @@ public class Solution692 {
         PriorityQueue<Map.Entry<String, Integer>> pq = new PriorityQueue<>(
                 (left, right) -> {
                     if ((int) left.getValue() == right.getValue()) {
-                        return left.getKey().compareTo(right.getKey());
-                    } else {
-                        return right.getValue().compareTo(left.getValue());
+                        return right.getKey().compareTo(left.getKey());
                     }
+                    return left.getValue().compareTo(right.getValue());
+
                 }
         );
-        pq.addAll(map.entrySet());
+        for (Map.Entry<String, Integer> entry : map.entrySet()) {
+            pq.offer(entry);
+            if (pq.size() > k) {
+                pq.poll();
+            }
+        }
         for (int i = 0; i < k; i++) {
-            Map.Entry<String, Integer> entry = pq.poll();
-            result.add(entry.getKey());
+            result.add(0, pq.poll().getKey());
         }
         return result;
     }
