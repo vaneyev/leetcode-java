@@ -4,9 +4,6 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-/**
- * Best Time to Buy and Sell Stock with Transaction Fee
- */
 class Solution714Test {
 
     @Test
